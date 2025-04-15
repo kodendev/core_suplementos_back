@@ -9,6 +9,12 @@ import { OrderItemsModule } from './order_items/order_items.module';
 import { CartItemsModule } from './cart_items/cart_items.module';
 import { ShipmentsModule } from './shipments/shipments.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { PaymentsModule } from './payments/payments.module';
+import { ConfigModule } from '@nestjs/config';
+console.log('DB_HOST', process.env.DB_HOST);
+console.log('DB_PORT', process.env.DB_PORT);
+console.log('DB_USERNAME', process.env.DB_USERNAME);
+console.log('DB_PASSWORD', process.env.DB_PASSWORD);
 @Module({
   imports: [
     UsersModule,
@@ -18,17 +24,22 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     OrderItemsModule,
     CartItemsModule,
     ShipmentsModule,
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.DB_HOST,
-      port: parseInt(process.env.DB_PORT || '5432', 10),
-      username: process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
+      host: 'localhost',
+      port: 5432,
+      username: 'gfreddi',
+      password: 'GFdev2024%%',
+      database: 'core_suplementos',
       entities: [__dirname + '/**/*.entity{.ts,.js}'], // Path to your entities
       synchronize: true,
       logging: true,
     }),
+    PaymentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
