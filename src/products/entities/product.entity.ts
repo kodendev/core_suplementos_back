@@ -44,4 +44,7 @@ export class Product {
 
   @ManyToOne(() => Category, (category) => category.products)
   category: Category; // Relación muchos-a-uno con categoría
+
+  @Column('text') // Define la imagen del producto
+  image: string;
 }
