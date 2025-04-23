@@ -24,19 +24,18 @@ console.log('DB_PASSWORD', process.env.DB_PASSWORD);
     OrderItemsModule,
     CartItemsModule,
     ShipmentsModule,
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
     ConfigModule.forRoot({
       isGlobal: true,
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: '172.28.226.196',
       port: 5432,
       username: 'gfreddi',
       password: 'GFdev2024%%',
       database: 'core_suplementos',
       entities: [__dirname + '/**/*.entity{.ts,.js}'], // Path to your entities
-      synchronize: true,
+      synchronize: false,
       logging: true,
     }),
     PaymentsModule,
