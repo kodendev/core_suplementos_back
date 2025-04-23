@@ -6,59 +6,95 @@ import {
   IsInt,
   IsDate,
 } from 'class-validator';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 // DTO para la creación de un producto
 export class CreateProductDto {
-  // Nombre del producto
+  @ApiProperty({ example: 'Proteína Whey', description: 'Nombre del producto' })
   @IsString()
   name: string;
 
-  // Descripción completa del producto
+  @ApiProperty({
+    example: 'Suplemento de proteína de alta calidad.',
+    description: 'Descripción completa del producto',
+  })
   @IsString()
   description: string;
 
-  // Descripción corta del producto
+  @ApiProperty({
+    example: 'Rápida absorción',
+    description: 'Descripción corta del producto',
+  })
   @IsString()
   smallDescription: string;
 
-  // Segunda descripción corta adicional
+  @ApiProperty({
+    example: 'Sabor vainilla',
+    description: 'Segunda descripción corta adicional',
+  })
   @IsString()
   smallDescriptionOne: string;
 
-  // Tercera descripción corta adicional
+  @ApiProperty({
+    example: 'Incluye aminoácidos',
+    description: 'Tercera descripción corta adicional',
+  })
   @IsString()
   smallDescriptionTwo: string;
 
-  // Cuarta descripción corta adicional
+  @ApiProperty({
+    example: 'Sin azúcar añadida',
+    description: 'Cuarta descripción corta adicional',
+  })
   @IsString()
   smallDescriptionThree: string;
 
-  // Precio unitario del producto
+  @ApiProperty({ example: 599.99, description: 'Precio unitario del producto' })
   @IsDecimal()
   priceUnit: number;
 
-  // Cantidad de stock disponible del producto
+  @ApiProperty({
+    example: 100,
+    description: 'Cantidad de stock disponible del producto',
+  })
   @IsInt()
   stockQuantity: number;
 
-  // Estado del producto (activo o inactivo)
+  @ApiProperty({
+    example: true,
+    description: 'Estado del producto (activo o inactivo)',
+  })
   @IsBoolean()
   isActive: boolean;
 
-  // ID de la categoría a la que pertenece el producto (relación muchos-a-uno)
+  @ApiProperty({
+    example: 1,
+    description: 'ID de la categoría a la que pertenece el producto',
+  })
   @IsInt()
   categoryId: number;
 
-  // Imagen principal del producto (URL o nombre de archivo)
+  @ApiProperty({
+    example: 'https://ejemplo.com/imagen.jpg',
+    description: 'Imagen principal del producto (URL o nombre de archivo)',
+  })
   @IsString()
   image: string;
 
-  // Fecha de creación (opcional, se asigna automáticamente si no se proporciona)
+  @ApiPropertyOptional({
+    example: '2024-04-23T12:34:56.789Z',
+    description:
+      'Fecha de creación (opcional, se asigna automáticamente si no se proporciona)',
+  })
   @IsOptional()
   @IsDate()
   createdAt?: Date;
 
-  // Fecha de actualización (opcional, se asigna automáticamente si no se proporciona)
+  @ApiPropertyOptional({
+    example: '2024-04-23T12:34:56.789Z',
+    description:
+      'Fecha de actualización (opcional, se asigna automáticamente si no se proporciona)',
+  })
   @IsOptional()
   @IsDate()
   updatedAt?: Date;
