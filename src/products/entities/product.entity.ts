@@ -1,47 +1,96 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-import { Category } from '../../categories/entities/category.entity'; // Importa la entidad Category para establecer la relación
-import { ManyToOne } from 'typeorm'; // Importa el decorador ManyToOne para establecer relaciones entre entidades
-@Entity() // Define que esta clase es una entidad de la base de datos
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Category } from '../../categories/entities/category.entity';
+import { ApiProperty } from '@nestjs/swagger';
+
+@Entity()
 export class Product {
-  @PrimaryGeneratedColumn() // Genera automáticamente un identificador único para cada producto
+  @ApiProperty({ example: 1, description: 'Identificador único del producto' })
+  @PrimaryGeneratedColumn()
   id: number;
 
-  @Column() // Define una columna para el nombre del producto
+  @ApiProperty({ example: 'Proteína Whey', description: 'Nombre del producto' })
+  @Column()
   name: string;
 
-  @Column('text') // Almacena una descripción del producto en texto largo
+  @ApiProperty({
+    example: 'Suplemento de proteína de alta calidad.',
+    description: 'Descripción larga del producto',
+  })
+  @Column('text')
   description: string;
 
+  @ApiProperty({
+    example: 'Rápida absorción',
+    description: 'Descripción corta 1',
+  })
   @Column('text')
   smallDescription: string;
 
+  @ApiProperty({
+    example: 'Sabor vainilla',
+    description: 'Descripción corta 2',
+  })
   @Column('text')
   smallDescriptionOne: string;
 
+  @ApiProperty({
+    example: 'Incluye aminoácidos',
+    description: 'Descripción corta 3',
+  })
   @Column('text')
   smallDescriptionTwo: string;
 
+  @ApiProperty({
+    example: 'Sin azúcar añadida',
+    description: 'Descripción corta 4',
+  })
   @Column('text')
   smallDescriptionThree: string;
 
-  @Column('decimal') // Define el precio unitario del producto
+  @ApiProperty({ example: 599.99, description: 'Precio unitario del producto' })
+  @Column('decimal')
   priceUnit: number;
 
-  @Column('int') // Define la cantidad de stock disponible
+  @ApiProperty({ example: 100, description: 'Cantidad de stock disponible' })
+  @Column('int')
   stockQuantity: number;
 
-  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' }) // Fecha de creación automática
+  @ApiProperty({
+    example: '2024-04-23T12:34:56.789Z',
+    description: 'Fecha de creación automática',
+  })
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   createdAt: Date;
 
+  @ApiProperty({
+    example: '2024-04-23T12:34:56.789Z',
+    description: 'Fecha de actualización automática',
+  })
   @Column({
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP',
     onUpdate: 'CURRENT_TIMESTAMP',
-  }) // Fecha de actualización automática
+  })
   updatedAt: Date;
-  @Column('boolean') // Define el estado del producto (activo o inactivo)
+
+  @ApiProperty({
+    example: true,
+    description: 'Estado del producto (activo o inactivo)',
+  })
+  @Column('boolean')
   isActive: boolean;
 
+  @ApiProperty({
+    type: () => Category,
+    description: 'Categoría a la que pertenece el producto',
+  })
   @ManyToOne(() => Category, (category) => category.products)
-  category: Category; // Relación muchos-a-uno con categoría
+  category: Category;
+
+  @ApiProperty({
+    example: 'https://ejemplo.com/imagen.jpg',
+    description: 'URL de la imagen del producto',
+  })
+  @Column('text')
+  image: string;
 }

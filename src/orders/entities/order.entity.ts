@@ -6,7 +6,7 @@ import {
   OneToMany,
 } from 'typeorm';
 import { User } from '../../users/entities/user.entity'; // Importa la entidad User para establecer la relación
-import { OrderItem } from 'src/order_items/entities/order_item.entity'; // Importa la entidad Payment para establecer la relación
+import { OrderItem } from '../../order_items/entities/order_item.entity'; // Importa la entidad Payment para establecer la relación
 import { Shipment } from 'src/shipments/entities/shipment.entity';
 import { Payment } from 'src/payments/entities/payment.entity'; // Importa la entidad Payment para establecer la relación
 
