@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { Order } from 'src/orders/entities/order.entity';
+import { Order } from '../../orders/entities/order.entity';
 import { CartItem } from 'src/cart_items/entities/cart_item.entity';
 
 @Entity() // Define que esta clase es una entidad de la base de datos

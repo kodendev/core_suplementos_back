@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { Order } from 'src/orders/entities/order.entity';
+import { Order } from '../../orders/entities/order.entity'; // Importa la entidad Order para establecer la relación
 
 @Entity() // Define que esta clase es una entidad de la base de datos
 export class Shipment {
