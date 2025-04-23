@@ -57,6 +57,27 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Documentation
+
+### API Documentation with Swagger
+
+This project includes interactive API documentation powered by [Swagger](https://swagger.io/) and [@nestjs/swagger](https://docs.nestjs.com/openapi/introduction).
+
+After starting the application, you can access the Swagger UI at:
+
+```
+http://localhost:3000/api
+```
+
+> Replace `3000` with your configured port if different.
+
+The Swagger UI provides:
+- A complete list of all available endpoints grouped by tags.
+- Detailed information about request and response schemas, including field descriptions and example values.
+- The ability to test endpoints directly from the browser.
+
+This makes it easy to explore, understand, and test your API without additional tools.
+
 ## Deployment
 
 When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
@@ -96,3 +117,5 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+
