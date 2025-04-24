@@ -5,6 +5,9 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Product } from './entities/product.entity';
 import { Repository } from 'typeorm';
 import { Logger } from '@nestjs/common';
+import { plainToInstance } from 'class-transformer';
+import { ProductDto } from './dto/product.dto';
+
 @Injectable()
 export class ProductsService {
   private readonly logger = new Logger('ProductsService');
@@ -19,9 +22,17 @@ export class ProductsService {
     return this.productsRepository.save(product);
   }
 
-  findAll() {
+  async findAll() {
     this.logger.log('Finding all products');
-    return this.productsRepository.find();
+    const products = await this.productsRepository.find({
+      relations: {
+        category: true,
+        images: true,
+      },
+    });
+    return plainToInstance(ProductDto, products, {
+      excludeExtraneousValues: true, // Exclude properties not marked with @Expose()
+    });
   }
 
   findOne(id: number) {
