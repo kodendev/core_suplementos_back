@@ -2,10 +2,11 @@ import {
   IsString,
   IsBoolean,
   IsOptional,
-  IsDecimal,
   IsInt,
   IsDate,
+  IsNumber,
 } from 'class-validator';
+import { CategoryExists } from 'src/common/decorators/CategoryExists.decorator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 // DTO para la creación de un producto
@@ -50,7 +51,7 @@ export class CreateProductDto {
   smallDescriptionThree: string;
 
   @ApiProperty({ example: 599.99, description: 'Precio unitario del producto' })
-  @IsDecimal()
+  @IsNumber({ maxDecimalPlaces: 2 })
   priceUnit: number;
 
   @ApiProperty({
@@ -71,6 +72,7 @@ export class CreateProductDto {
     example: 1,
     description: 'ID de la categoría a la que pertenece el producto',
   })
+  @CategoryExists()
   @IsInt()
   categoryId: number;
 

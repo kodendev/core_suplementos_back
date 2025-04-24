@@ -8,7 +8,7 @@ import { Category } from './entities/category.entity';
 export class CategoriesService {
   constructor(
     @InjectRepository(Category)
-    private categoriesRepository: Repository<Category>,
+    private readonly categoriesRepository: Repository<Category>,
   ) {}
 
   create(createCategoryDto: CreateCategoryDto) {
