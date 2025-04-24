@@ -1,6 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  OneToMany,
+} from 'typeorm';
 import { Category } from '../../categories/entities/category.entity';
 import { ApiProperty } from '@nestjs/swagger';
+import { Image } from 'src/images/entity/image.entity';
 
 @Entity()
 export class Product {
@@ -93,4 +100,11 @@ export class Product {
   })
   @Column('text')
   image: string;
+  @ApiProperty({
+    type: () => Image,
+    isArray: true,
+    description: 'Imágenes del producto',
+  })
+  @OneToMany(() => Image, (image) => image.product, { cascade: true })
+  images: Image[];
 }

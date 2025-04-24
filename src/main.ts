@@ -3,10 +3,18 @@ import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { useContainer } from 'class-validator';
 import { ValidationPipe } from '@nestjs/common';
+import 'dotenv/config';
+import { v2 as cloudinary } from 'cloudinary';
 console.time('NestJS boot');
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUD_API_KEY,
+    api_secret: process.env.CLOUD_API_SECRET,
+  });
 
   const config = new DocumentBuilder()
     .setTitle('Core API')

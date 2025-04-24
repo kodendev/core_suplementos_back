@@ -6,7 +6,7 @@ import os
 from datetime import datetime
 
 # Configuración de la base de datos (PostgreSQL)
-DATABASE_URL = "postgresql://user:password@localhost:5432/mydatabase"
+DATABASE_URL = "postgresql://gfreddi:GFdev2024%%@localhost:5432/core_suplementos"
 
 # Crear el motor de conexión
 engine = create_engine(DATABASE_URL)

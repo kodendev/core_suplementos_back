@@ -11,6 +11,7 @@ import { ShipmentsModule } from './shipments/shipments.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PaymentsModule } from './payments/payments.module';
 import { ConfigModule } from '@nestjs/config';
+import { ImageModule } from './images/image.module';
 console.log('DB_HOST', process.env.DB_HOST);
 console.log('DB_PORT', process.env.DB_PORT);
 console.log('DB_USERNAME', process.env.DB_USERNAME);
@@ -24,6 +25,7 @@ console.log('DB_PASSWORD', process.env.DB_PASSWORD);
     OrderItemsModule,
     CartItemsModule,
     ShipmentsModule,
+    ImageModule,
     ConfigModule.forRoot({
       isGlobal: true,
     }),
@@ -35,7 +37,7 @@ console.log('DB_PASSWORD', process.env.DB_PASSWORD);
       password: 'GFdev2024%%',
       database: 'core_suplementos',
       entities: [__dirname + '/**/*.entity{.ts,.js}'], // Path to your entities
-      synchronize: false,
+      synchronize: true,
       logging: true,
     }),
     PaymentsModule,
