@@ -12,6 +12,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { PaymentsModule } from './payments/payments.module';
 import { ConfigModule } from '@nestjs/config';
 import { ImageModule } from './images/image.module';
+import { AuthModule } from './auth/auth.module';
+import 'dotenv/config';
 console.log('DB_HOST', process.env.DB_HOST);
 console.log('DB_PORT', process.env.DB_PORT);
 console.log('DB_USERNAME', process.env.DB_USERNAME);
@@ -41,6 +43,7 @@ console.log('DB_PASSWORD', process.env.DB_PASSWORD);
       logging: true,
     }),
     PaymentsModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
