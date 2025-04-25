@@ -1,7 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 
 export class HashPassword {
   static async hashPassword(password: string): Promise<string> {

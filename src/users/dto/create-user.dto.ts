@@ -27,7 +27,7 @@ export class CreateUserDto {
   })
   @IsString()
   @MinLength(6)
-  readonly password: string;
+  readonly passwordHash: string;
 
   @ApiProperty({
     example: 'admin',
