@@ -6,6 +6,7 @@ import { ValidationPipe } from '@nestjs/common';
 import 'dotenv/config';
 import { v2 as cloudinary } from 'cloudinary';
 console.time('NestJS boot');
+import { Logger } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -15,7 +16,12 @@ async function bootstrap() {
     api_key: process.env.CLOUD_API_KEY,
     api_secret: process.env.CLOUD_API_SECRET,
   });
-
+  app.useLogger(new Logger());
+  app.enableCors({
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: false,
+  });
   const config = new DocumentBuilder()
     .setTitle('Core API')
     .setDescription('Core API description')
@@ -33,7 +39,7 @@ async function bootstrap() {
       transform: true, // transforma tipos automáticamente (por ej. string a number)
     }),
   );
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(3001);
   console.timeEnd('NestJS boot');
 }
 bootstrap();

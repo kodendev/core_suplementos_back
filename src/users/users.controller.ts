@@ -20,6 +20,7 @@ export class UsersController {
   @ApiBody({ type: CreateUserDto })
   @ApiResponse({ status: 201, description: 'Usuario creado exitosamente.' })
   create(@Body() createUserDto: CreateUserDto) {
+    console.log('createUserDto', createUserDto);
     return this.usersService.create(createUserDto);
   }
 
