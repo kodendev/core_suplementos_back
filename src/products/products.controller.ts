@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Delete,
+  Query,
+  ValidationPipe,
+} from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 // import { UpdateProductDto } from './dto/update-product.dto';
@@ -9,6 +18,7 @@ import {
   ApiParam,
   ApiBody,
 } from '@nestjs/swagger';
+import { SearchProductDto } from './dto/search-product.dto';
 
 @ApiTags('products')
 @Controller('products')
@@ -28,6 +38,16 @@ export class ProductsController {
   @ApiResponse({ status: 200, description: 'Lista de productos.' })
   findAll() {
     return this.productsService.findAll();
+  }
+
+  @Get('search')
+  @ApiOperation({ summary: 'Buscar productos por nombre' })
+  @ApiResponse({
+    status: 200,
+    description: 'Lista de productos filtrados por nombre.',
+  })
+  searchByName(@Query(new ValidationPipe()) query: SearchProductDto) {
+    return this.productsService.searchByName(query.name);
   }
 
   @Get(':id')
