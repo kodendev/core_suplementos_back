@@ -39,7 +39,7 @@ async function bootstrap() {
       transform: true, // transforma tipos automáticamente (por ej. string a number)
     }),
   );
-  await app.listen(3001);
+  await app.listen(3000);
   console.timeEnd('NestJS boot');
 }
 bootstrap();
