@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Delete,
+  Query,
+  ValidationPipe,
+} from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 // import { UpdateProductDto } from './dto/update-product.dto';
@@ -8,7 +17,9 @@ import {
   ApiResponse,
   ApiParam,
   ApiBody,
+  ApiQuery,
 } from '@nestjs/swagger';
+import { PaginationDto } from './dto/pagination-query.dto';
 
 @ApiTags('products')
 @Controller('products')
@@ -28,6 +39,16 @@ export class ProductsController {
   @ApiResponse({ status: 200, description: 'Lista de productos.' })
   findAll() {
     return this.productsService.findAll();
+  }
+
+  @Get('paginated')
+  @ApiQuery({ name: 'page', required: false, type: Number })
+  @ApiQuery({ name: 'limit', required: false, type: Number })
+  findPaginated(
+    @Query(new ValidationPipe({ transform: true }))
+    paginationDto: PaginationDto,
+  ) {
+    return this.productsService.findPaginated(paginationDto);
   }
 
   @Get(':id')
