@@ -1,22 +1,22 @@
 [
-    {
-      "name": "Proteínas",
-      "description": "Suplementos proteicos para ganancia muscular y recuperación.",
-      "isActive": true
-    },
-    {
-      "name": "Pre-entrenos",
-      "description": "Suplementos para aumentar energía y rendimiento durante el entrenamiento.",
-      "isActive": true
-    },
-    {
-      "name": "Aminoácidos",
-      "description": "Aminoácidos esenciales y BCAA para recuperación muscular.",
-      "isActive": true
-    },
-    {
-      "name": "Vitaminas y Minerales",
-      "description": "Suplementos para apoyar la salud general y el rendimiento físico.",
-      "isActive": true
-    }
-  ]
+  {
+    "name": "Proteínas",
+    "description": "Suplementos proteicos para ganancia muscular y recuperación.",
+    "isActive": true
+  },
+  {
+    "name": "Pre-entrenos",
+    "description": "Suplementos para aumentar energía y rendimiento durante el entrenamiento.",
+    "isActive": true
+  },
+  {
+    "name": "Aminoácidos",
+    "description": "Aminoácidos esenciales y BCAA para recuperación muscular.",
+    "isActive": true
+  },
+  {
+    "name": "Vitaminas y Minerales",
+    "description": "Suplementos para apoyar la salud general y el rendimiento físico.",
+    "isActive": true
+  }
+]
