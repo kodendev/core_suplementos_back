@@ -1,182 +1,182 @@
 [
-    {
-      "name": "Admin User",
-      "email": "admin@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "admin",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "Juan Pérez",
-      "email": "juan.perez@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "final_user",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "Gym Mayorista",
-      "email": "mayorista@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "wholesaler",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "María Gómez",
-      "email": "maria.gomez@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "final_user",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "Carlos López",
-      "email": "carlos.lopez@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "final_user",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "Ana Martínez",
-      "email": "ana.martinez@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "final_user",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "Distribuidora Fit",
-      "email": "dist.fit@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "wholesaler",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "Luis Fernández",
-      "email": "luis.fernandez@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "final_user",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "Sofía Ramírez",
-      "email": "sofia.ramirez@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "final_user",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "Suplementos Mayor",
-      "email": "sup.mayor@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "wholesaler",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "Diego Torres",
-      "email": "diego.torres@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "final_user",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "Laura Sánchez",
-      "email": "laura.sanchez@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "final_user",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "Gym Power",
-      "email": "gym.power@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "wholesaler",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "Pedro Castillo",
-      "email": "pedro.castillo@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "final_user",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "Clara Díaz",
-      "email": "clara.diaz@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "final_user",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "Suplementos Bulk",
-      "email": "bulk@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "wholesaler",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "Marta Vargas",
-      "email": "marta.vargas@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "final_user",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "Javier Morales",
-      "email": "javier.morales@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "final_user",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "Fit Distribuidora",
-      "email": "fit.dist@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "wholesaler",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    },
-    {
-      "name": "Elena Ruiz",
-      "email": "elena.ruiz@coresuplementos.com",
-      "passwordHash": "$2b$10$examplehashedpassword1234567890",
-      "role": "final_user",
-      "status": "active",
-      "createdAt": "2025-04-23T10:00:00Z",
-      "updatedAt": "2025-04-23T10:00:00Z"
-    }
-  ]
+  {
+    "name": "Admin User",
+    "email": "admin@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "admin",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "Juan Pérez",
+    "email": "juan.perez@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "final_user",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "Gym Mayorista",
+    "email": "mayorista@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "wholesaler",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "María Gómez",
+    "email": "maria.gomez@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "final_user",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "Carlos López",
+    "email": "carlos.lopez@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "final_user",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "Ana Martínez",
+    "email": "ana.martinez@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "final_user",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "Distribuidora Fit",
+    "email": "dist.fit@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "wholesaler",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "Luis Fernández",
+    "email": "luis.fernandez@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "final_user",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "Sofía Ramírez",
+    "email": "sofia.ramirez@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "final_user",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "Suplementos Mayor",
+    "email": "sup.mayor@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "wholesaler",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "Diego Torres",
+    "email": "diego.torres@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "final_user",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "Laura Sánchez",
+    "email": "laura.sanchez@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "final_user",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "Gym Power",
+    "email": "gym.power@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "wholesaler",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "Pedro Castillo",
+    "email": "pedro.castillo@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "final_user",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "Clara Díaz",
+    "email": "clara.diaz@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "final_user",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "Suplementos Bulk",
+    "email": "bulk@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "wholesaler",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "Marta Vargas",
+    "email": "marta.vargas@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "final_user",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "Javier Morales",
+    "email": "javier.morales@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "final_user",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "Fit Distribuidora",
+    "email": "fit.dist@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "wholesaler",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  },
+  {
+    "name": "Elena Ruiz",
+    "email": "elena.ruiz@coresuplementos.com",
+    "passwordHash": "$2b$10$examplehashedpassword1234567890",
+    "role": "final_user",
+    "status": "active",
+    "createdAt": "2025-04-23T10:00:00Z",
+    "updatedAt": "2025-04-23T10:00:00Z"
+  }
+]
