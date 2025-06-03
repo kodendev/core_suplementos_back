@@ -6,6 +6,16 @@ import { ValidationPipe } from '@nestjs/common';
 import 'dotenv/config';
 import { v2 as cloudinary } from 'cloudinary';
 console.time('NestJS boot');
+import { Injectable, NestMiddleware } from '@nestjs/common';
+import { Request, Response, NextFunction } from 'express';
+
+@Injectable()
+export class LoggerMiddleware implements NestMiddleware {
+  use(req: Request, res: Response, next: NextFunction) {
+    console.log(`[${req.method}] ${req.originalUrl}`);
+    next();
+  } // esto sirve para loguear las peticiones entrantes
+}
 import { Logger } from '@nestjs/common';
 
 async function bootstrap() {
@@ -39,7 +49,7 @@ async function bootstrap() {
       transform: true, // transforma tipos automáticamente (por ej. string a number)
     }),
   );
-  await app.listen(3001);
+  await app.listen(3000);
   console.timeEnd('NestJS boot');
 }
 bootstrap();

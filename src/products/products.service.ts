@@ -1,13 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
-// import { UpdateProductDto } from './dto/update-product.dto';
+import { UpdateProductDto } from './dto/update-product.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Product } from './entities/product.entity';
 import { Repository } from 'typeorm';
 import { Logger } from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
 import { ProductDto } from './dto/product.dto';
-
 @Injectable()
 export class ProductsService {
   private readonly logger = new Logger('ProductsService');
@@ -40,9 +39,9 @@ export class ProductsService {
     return this.productsRepository.findOne({ where: { id } });
   }
 
-  // update(id: number, updateProductDto: UpdateProductDto) {
-  //   return `This action updates a #${id} product`;
-  // }
+  update(id: number, updateProductDto: UpdateProductDto) {
+    return this.productsRepository.update(id, updateProductDto);
+  }
 
   remove(id: number) {
     this.logger.log(`Removing product with id: ${id}`);

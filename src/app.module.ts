@@ -13,6 +13,10 @@ import { PaymentsModule } from './payments/payments.module';
 import { ConfigModule } from '@nestjs/config';
 import { ImageModule } from './images/image.module';
 import { AuthModule } from './auth/auth.module';
+import { MiddlewareConsumer, NestModule } from '@nestjs/common';
+import { LoggerMiddleware } from 'src/main';
+// ...otros imports...
+
 import 'dotenv/config';
 console.log('DB_HOST', process.env.DB_HOST);
 console.log('DB_PORT', process.env.DB_PORT);
@@ -48,4 +52,8 @@ console.log('DB_PASSWORD', process.env.DB_PASSWORD);
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggerMiddleware).forRoutes('*');
+  }
+}
