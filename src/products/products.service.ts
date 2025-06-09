@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -7,6 +7,7 @@ import { Repository } from 'typeorm';
 import { Logger } from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
 import { ProductDto } from './dto/product.dto';
+import { Category } from 'src/categories/entities/category.entity';
 @Injectable()
 export class ProductsService {
   private readonly logger = new Logger('ProductsService');
@@ -14,9 +15,12 @@ export class ProductsService {
   constructor(
     @InjectRepository(Product)
     private productsRepository: Repository<Product>,
+    @InjectRepository(Category)
+    private categoryRepository: Repository<Category>,
   ) {}
   create(createProductDto: CreateProductDto) {
     const product = this.productsRepository.create(createProductDto);
+    console.log('Creating product: ' + JSON.stringify(product));
     this.logger.log('Creating product: ' + JSON.stringify(product));
     return this.productsRepository.save(product);
   }
@@ -39,8 +43,45 @@ export class ProductsService {
     return this.productsRepository.findOne({ where: { id } });
   }
 
-  update(id: number, updateProductDto: UpdateProductDto) {
-    return this.productsRepository.update(id, updateProductDto);
+  async update(id: number, updateProductDto: UpdateProductDto) {
+    try {
+      const { categoryId, ...rest } = updateProductDto;
+      this.logger.log(`Updating product with id: ${id}`);
+
+      const product = await this.productsRepository.preload({
+        id,
+        ...rest,
+      });
+
+      if (!product) {
+        throw new NotFoundException(`Producto con ID ${id} no encontrado`);
+      }
+
+      if (categoryId) {
+        const categoryEntity = await this.categoryRepository.findOne({
+          where: { id: categoryId },
+        });
+        if (!categoryEntity) {
+          throw new NotFoundException(
+            `Categoría con ID ${categoryId} no encontrada`,
+          );
+        }
+        product.category = categoryEntity;
+      }
+
+      return await this.productsRepository.save(product);
+    } catch (error) {
+      this.logger.error(
+        `Error actualizando producto con id ${id}`,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        error.stack,
+      );
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      console.log(error.message); // "Algo falló"
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      console.log(error.stack); // muestra el stack trace completo con la línea donde ocurrió
+      throw error;
+    }
   }
 
   remove(id: number) {

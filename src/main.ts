@@ -19,7 +19,9 @@ export class LoggerMiddleware implements NestMiddleware {
 import { Logger } from '@nestjs/common';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    logger: ['log', 'error', 'warn', 'debug', 'verbose'], // 👈 Mostrá todos los logs
+  });
 
   cloudinary.config({
     cloud_name: process.env.CLOUD_NAME,
