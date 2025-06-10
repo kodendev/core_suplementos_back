@@ -6,6 +6,7 @@ import {
   Param,
   Delete,
   Query,
+  Patch,
   ValidationPipe,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
