@@ -22,6 +22,7 @@ import {
 } from '@nestjs/swagger';
 import { instanceToPlain } from 'class-transformer';
 import { PaginationDto } from './dto/pagination-query.dto';
+import { SearchProductDto } from './dto/search-product.dto';
 
 @ApiTags('products')
 @Controller('products')
@@ -51,6 +52,16 @@ export class ProductsController {
     paginationDto: PaginationDto,
   ) {
     return this.productsService.findPaginated(paginationDto);
+  }
+
+  @Get('search')
+  @ApiOperation({ summary: 'Buscar productos por nombre' })
+  @ApiResponse({
+    status: 200,
+    description: 'Lista de productos filtrados por nombre.',
+  })
+  searchByName(@Query(new ValidationPipe()) query: SearchProductDto) {
+    return this.productsService.searchByName(query.name);
   }
 
   @Get(':id')
