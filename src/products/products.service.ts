@@ -7,6 +7,7 @@ import { Repository } from 'typeorm';
 import { Logger } from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
 import { ProductDto } from './dto/product.dto';
+import { PaginationDto } from './dto/pagination-query.dto';
 import { Category } from 'src/categories/entities/category.entity';
 @Injectable()
 export class ProductsService {
@@ -100,7 +101,28 @@ export class ProductsService {
       throw error;
     }
   }
+  async findPaginated({ page = 1, limit = 10 }: PaginationDto) {
+    const [products, total] = await this.productsRepository.findAndCount({
+      relations: {
+        category: true,
+        images: true,
+      },
+      skip: (page - 1) * limit,
+      take: limit,
+      order: {
+        id: 'ASC',
+      },
+    });
 
+    return {
+      data: plainToInstance(ProductDto, products, {
+        excludeExtraneousValues: true,
+      }),
+      total,
+      page,
+      limit,
+    };
+  }
   remove(id: number) {
     this.logger.log(`Removing product with id: ${id}`);
     return this.productsRepository.delete(id);
