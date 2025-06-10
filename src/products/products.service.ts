@@ -38,9 +38,26 @@ export class ProductsService {
     });
   }
 
-  findOne(id: number) {
-    this.logger.log(`Finding product with id: ${id}`);
-    return this.productsRepository.findOne({ where: { id } });
+  async findOne(id: number) {
+    try {
+      const product = await this.productsRepository.findOne({
+        where: { id },
+        relations: {
+          category: true,
+          images: true,
+        },
+      });
+      this.logger.log(`Finding product with id: ${id}`);
+      if (!product) {
+        throw new NotFoundException(`Producto con ID ${id} no encontrado`);
+      }
+      this.logger.log(`Product found: ${JSON.stringify(product)}`);
+      return product;
+    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      this.logger.error(`Error finding product with id ${id}`, error.message);
+      throw error;
+    }
   }
 
   async update(id: number, updateProductDto: UpdateProductDto) {
