@@ -8,7 +8,7 @@ import {
 import { Category } from '../../categories/entities/category.entity';
 import { ApiProperty } from '@nestjs/swagger';
 import { Image } from 'src/images/entity/image.entity';
-
+import { Exclude } from 'class-transformer';
 @Entity()
 export class Product {
   @ApiProperty({ example: 1, description: 'Identificador único del producto' })
@@ -61,11 +61,12 @@ export class Product {
   @ApiProperty({ example: 100, description: 'Cantidad de stock disponible' })
   @Column('int')
   stockQuantity: number;
-
+  @Exclude()
   @ApiProperty({
     example: '2024-04-23T12:34:56.789Z',
     description: 'Fecha de creación automática',
   })
+  @Exclude()
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   createdAt: Date;
 
@@ -73,6 +74,7 @@ export class Product {
     example: '2024-04-23T12:34:56.789Z',
     description: 'Fecha de actualización automática',
   })
+  @Exclude()
   @Column({
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP',

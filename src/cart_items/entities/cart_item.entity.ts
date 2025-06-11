@@ -40,17 +40,9 @@ export class CartItem {
   @Column('int')
   quantity: number;
 
-  @ApiProperty({
-    example: '2024-04-27T18:21:45.000Z',
-    description: 'Fecha de creación del registro',
-  })
   @CreateDateColumn()
   createdAt: Date;
 
-  @ApiProperty({
-    example: '2024-04-27T19:15:30.000Z',
-    description: 'Fecha de la última actualización del registro',
-  })
   @UpdateDateColumn()
   updatedAt: Date;
 }

@@ -72,6 +72,7 @@ http://localhost:3000/api
 > Replace `3000` with your configured port if different.
 
 The Swagger UI provides:
+
 - A complete list of all available endpoints grouped by tags.
 - Detailed information about request and response schemas, including field descriptions and example values.
 - The ability to test endpoints directly from the browser.
@@ -117,5 +118,3 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
-
-
