@@ -13,10 +13,38 @@ import { UpdateOrderDto } from './dto/update-order.dto';
 
 @Controller('orders')
 export class OrdersController {
-  constructor(private readonly ordersService: OrdersService) {}
+  constructor(private readonly ordersService: OrdersService) { }
 
   @Post()
   create(@Body() createOrderDto: CreateOrderDto) {
+    // EXAMPLE OF THE REQUEST BODY
+
+    /*
+    http://localhost:3000/orders
+    {
+      "userId": 1,
+      "totalAmount": 100,
+      "status": "pending",
+      "shippedDate": "2021-01-01",
+      "orderItems": [
+        {
+          "productId": 1,
+          "quantity": 1,
+          "price": 100
+        }
+      ],
+      "payment": {
+        "paymentDate": "2021-01-01",
+        "paymentMethod": "credit_card",
+        "amount": 100,
+        "status": "pending"
+      }
+    }
+    */
+    console.log('--------------------------------');
+    console.log('this is the createOrderDto');
+    console.log(createOrderDto);
+    console.log('--------------------------------');
     return this.ordersService.create(createOrderDto);
   }
 

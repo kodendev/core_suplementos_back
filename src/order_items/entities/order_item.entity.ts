@@ -20,5 +20,5 @@ export class OrderItem {
   price: number;
 
   @Column('decimal') // Define el total de la línea de orden (precio * cantidad)
-  total: number;
+  totalAmount: number;
 }

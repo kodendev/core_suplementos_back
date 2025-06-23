@@ -22,7 +22,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     logger: ['log', 'error', 'warn', 'debug', 'verbose'], // 👈 Mostrá todos los logs
   });
-
+  console.log(process.env.CLOUD_NAME);
   cloudinary.config({
     cloud_name: process.env.CLOUD_NAME,
     api_key: process.env.CLOUD_API_KEY,

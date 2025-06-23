@@ -15,7 +15,5 @@ export class CreateOrderItemDto {
   @IsNotEmpty()
   readonly price: number; // Precio unitario
 
-  @IsNumber()
-  @IsNotEmpty()
-  readonly total: number; // Total de la línea de orden (precio * cantidad)
+
 }

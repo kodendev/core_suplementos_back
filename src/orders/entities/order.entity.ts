@@ -4,6 +4,7 @@ import {
   Column,
   ManyToOne,
   OneToMany,
+  OneToOne,
 } from 'typeorm';
 import { User } from '../../users/entities/user.entity'; // Importa la entidad User para establecer la relación
 import { OrderItem } from '../../order_items/entities/order_item.entity'; // Importa la entidad Payment para establecer la relación
@@ -23,9 +24,9 @@ export class Order {
 
   @Column({
     type: 'enum', // Estado de la orden (pendiente, completada, enviada)
-    enum: ['pending', 'completed', 'shipped'],
+    enum: ['pending', 'completed', 'shipped', 'cancelled'],
   })
-  status: 'pending' | 'completed' | 'shipped';
+  status: 'pending' | 'completed' | 'shipped' | 'cancelled';
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' }) // Fecha de creación de la orden
   orderDate: Date;
@@ -36,9 +37,9 @@ export class Order {
   @OneToMany(() => OrderItem, (orderItem) => orderItem.order) // Relación de uno a muchos: una orden tiene múltiples productos
   orderItems: OrderItem[];
 
-  @OneToMany(() => Payment, (payment) => payment.order) // Relación de uno a muchos: una orden puede tener múltiples pagos
+  @OneToOne(() => Payment, (payment) => payment.order) // Relación de uno a muchos: una orden puede tener múltiples pagos
   payments: Payment[];
 
-  @OneToMany(() => Shipment, (shipment) => shipment.order) // Relación de uno a muchos: una orden puede tener múltiples envíos
+  @OneToOne(() => Shipment, (shipment) => shipment.order) // Relación de uno a muchos: una orden puede tener múltiples envíos
   shipments: Shipment[];
 }
